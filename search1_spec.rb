@@ -11,4 +11,14 @@ RSpec.describe Stemmer, "#stem" do
       expect(result).to eq('train')
     end
   end
+
+  context "when the given word is 'started'" do
+    it "returns 'start'" do
+      stemmer = Stemmer.new
+
+      result = stemmer.stem('started')
+
+      expect(result).to eq('start')
+    end
+  end
 end
