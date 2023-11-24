@@ -1,5 +1,5 @@
 class Stemmer
-  SUFFIXES = ["ing", "ed", "s"]
+  SUFFIXES = ["ing", "ed", "es", "s"]
   PREFIXES = ["in", "over", "under", "multi", "un"]
 
   def ending(word)

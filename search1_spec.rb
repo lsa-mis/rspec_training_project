@@ -22,6 +22,16 @@ RSpec.describe Stemmer, "#stem" do
     end
   end
 
+  context "when the given word is 'dresses'" do
+    it "returns 'dress'" do
+      stemmer = Stemmer.new
+
+      result = stemmer.stem('dresses')
+
+      expect(result).to eq('dress')
+    end
+  end
+
   context "when the given word is 'uncapable'" do
     it "returns 'capable'" do
       stemmer = Stemmer.new
