@@ -21,4 +21,24 @@ RSpec.describe Stemmer, "#stem" do
       expect(result).to eq('start')
     end
   end
+
+  context "when the given word is 'uncapable'" do
+    it "returns 'capable'" do
+      stemmer = Stemmer.new
+
+      result = stemmer.stem('uncapable')
+
+      expect(result).to eq('capable')
+    end
+  end
+
+  context "when the given word is 'underestimated'" do
+    it "returns 'estimat'" do
+      stemmer = Stemmer.new
+
+      result = stemmer.stem('underestimated')
+
+      expect(result).to eq('estimat')
+    end
+  end
 end
