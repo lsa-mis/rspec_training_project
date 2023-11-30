@@ -51,4 +51,25 @@ RSpec.describe Stemmer, "#stem" do
       expect(result).to eq('estimat')
     end
   end
+
+  context "when the given word is 'semiconductor'" do
+    it "returns 'conduct'" do
+      stemmer = Stemmer.new
+
+      result = stemmer.stem('semiconductor')
+
+      expect(result).to eq('conduct')
+    end
+  end
+
+  context "when the given word is 'semi-structured'" do
+    it "returns 'structur'" do
+      stemmer = Stemmer.new
+
+      result = stemmer.stem('semi-structured')
+
+      expect(result).to eq('structur')
+    end
+  end
+
 end

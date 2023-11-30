@@ -1,6 +1,6 @@
 class Stemmer
-  SUFFIXES = ["ing", "ed", "es", "s"]
-  PREFIXES = ["in", "over", "under", "multi", "un"]
+  SUFFIXES = ["ing", "ed", "es", "s", "or"]
+  PREFIXES = ["in", "over", "under", "multi", "un", "semi", 'anti']
 
   def ending(word)
     SUFFIXES.each do |suffix|
@@ -14,7 +14,7 @@ class Stemmer
   def starting(word)
     PREFIXES.each do |prefix|
       if word.start_with?(prefix)
-        word.slice! prefix
+        word.slice!(prefix)
         return word
       end
     end
@@ -24,6 +24,7 @@ class Stemmer
   def stem(word)
     new_word = ending(word)
     new_word = starting(new_word)
+    new_word.slice!("-")
     return new_word
   end
 
