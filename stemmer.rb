@@ -15,6 +15,7 @@ class Stemmer
     PREFIXES.each do |prefix|
       if word.start_with?(prefix)
         word.slice!(prefix)
+        word.slice!("-")
         return word
       end
     end
@@ -24,7 +25,6 @@ class Stemmer
   def stem(word)
     new_word = ending(word)
     new_word = starting(new_word)
-    new_word.slice!("-")
     return new_word
   end
 
