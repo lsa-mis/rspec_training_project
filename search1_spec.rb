@@ -1,75 +1,61 @@
 require 'rspec'
 require_relative './stemmer.rb'
 
-RSpec.describe Stemmer, "#stem" do
+RSpec.describe StemmerSuffix, "#stemsuffix" do
   context "when the given word is 'training'" do
     it "returns 'train'" do
-      stemmer = Stemmer.new
-
-      result = stemmer.stem('training')
-
-      expect(result).to eq('train')
+      find_the_stem("training", "train")
     end
   end
 
   context "when the given word is 'started'" do
     it "returns 'start'" do
-      stemmer = Stemmer.new
-
-      result = stemmer.stem('started')
-
-      expect(result).to eq('start')
+      find_the_stem("started", "start")
     end
   end
 
   context "when the given word is 'dresses'" do
     it "returns 'dress'" do
-      stemmer = Stemmer.new
-
-      result = stemmer.stem('dresses')
-
-      expect(result).to eq('dress')
-    end
-  end
-
-  context "when the given word is 'uncapable'" do
-    it "returns 'capable'" do
-      stemmer = Stemmer.new
-
-      result = stemmer.stem('uncapable')
-
-      expect(result).to eq('capable')
-    end
-  end
-
-  context "when the given word is 'underestimated'" do
-    it "returns 'estimat'" do
-      stemmer = Stemmer.new
-
-      result = stemmer.stem('underestimated')
-
-      expect(result).to eq('estimat')
+      find_the_stem("dresses","dress")
     end
   end
 
   context "when the given word is 'semiconductor'" do
     it "returns 'conduct'" do
-      stemmer = Stemmer.new
-
-      result = stemmer.stem('semiconductor')
-
-      expect(result).to eq('conduct')
+      find_the_stem("semiconductor","conduct")
     end
   end
 
+end
+
+RSpec.describe StemmerPrefix, "#stemprefix" do
+  context "when the given word is 'incapable'" do
+    it "returns 'capable'" do
+      find_the_stem("incapable","capable")
+    end
+  end
+
+  context "when the given word is 'underestimated'" do
+    it "returns 'estimat'" do
+      find_the_stem("underestimated","estimat")
+    end
+  end
+end
+
+RSpec.describe StemmerPrefixandSuffix, "#stemprefixandSuffix" do
   context "when the given word is 'semi-structured'" do
     it "returns 'structur'" do
-      stemmer = Stemmer.new
-
-      result = stemmer.stem('semi-structured')
-
-      expect(result).to eq('structur')
+      find_the_stem("semi-structured","structur")
     end
   end
+end
+
+
+def find_the_stem(stem_original, expect_result)
+  stemmer = Stemmer.new
+
+  result = stemmer.stem(stem_original)
+
+  expect(result).to eq(expect_result)
 
 end
