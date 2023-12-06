@@ -1,7 +1,7 @@
 require 'rspec'
 require_relative './stemmer.rb'
 
-RSpec.describe StemmerSuffix, "#stemsuffix" do
+RSpec.describe Stemmer, "#stemsuffix" do
   context "when the given word is 'training'" do
     it "returns 'train'" do
       find_the_stem("training", "train")
@@ -28,7 +28,7 @@ RSpec.describe StemmerSuffix, "#stemsuffix" do
 
 end
 
-RSpec.describe StemmerPrefix, "#stemprefix" do
+RSpec.describe Stemmer, "#stemprefix" do
   context "when the given word is 'incapable'" do
     it "returns 'capable'" do
       find_the_stem("incapable","capable")
@@ -42,7 +42,7 @@ RSpec.describe StemmerPrefix, "#stemprefix" do
   end
 end
 
-RSpec.describe StemmerPrefixandSuffix, "#stemprefixandSuffix" do
+RSpec.describe Stemmer, "#stemprefixandSuffix" do
   context "when the given word is 'semi-structured'" do
     it "returns 'structur'" do
       find_the_stem("semi-structured","structur")
