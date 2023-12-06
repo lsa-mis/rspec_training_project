@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative './stemmer.rb'
+require_relative './stemmer03.rb'
 
 
 RSpec.describe Stemmer, "#stem" do
