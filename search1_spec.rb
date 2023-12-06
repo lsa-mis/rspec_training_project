@@ -31,7 +31,7 @@ end
 RSpec.describe Stemmer, "#stemprefix" do
   context "when the given word is 'incapable'" do
     it "returns 'capable'" do
-      find_the_stem("incapable","capable")
+      find_the_stem("incapable","qcapable")
     end
   end
 
