@@ -1,7 +1,6 @@
 require 'rspec'
 require_relative './word.rb'
 
-
 RSpec.describe Word, "#stem" do
 
   context "when the given word is 'training'" do
