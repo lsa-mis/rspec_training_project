@@ -4,52 +4,51 @@ require_relative './word.rb'
 
 RSpec.describe Word, "#stem" do
 
-  let!(:word) { Word.new }
   context "when the given word is 'training'" do
     it "returns 'train'" do
-      result = word.stem('training')
+      result = Word.new('training').stem
       expect(result).to eq('train')
     end
   end
 
   context "when the given word is 'started'" do
     it "returns 'start'" do
-      result = word.stem('started')
+      result = Word.new('started').stem
       expect(result).to eq('start')
     end
   end
 
   context "when the given word is 'dresses'" do
     it "returns 'dress'" do
-      result = word.stem('dresses')
+      result = Word.new('dresses').stem
       expect(result).to eq('dress')
     end
   end
 
   context "when the given word is 'uncapable'" do
     it "returns 'capable'" do
-      result = word.stem('uncapable')
+      result = Word.new('uncapable').stem
       expect(result).to eq('capable')
     end
   end
 
   context "when the given word is 'underestimated'" do
     it "returns 'estimat'" do
-      result = word.stem('underestimated')
+      result = Word.new('underestimated').stem
       expect(result).to eq('estimat')
     end
   end
 
   context "when the given word is 'semiconductor'" do
     it "returns 'conduct'" do
-      result = word.stem('semiconductor')
+      result = Word.new('semiconductor').stem
       expect(result).to eq('conduct')
     end
   end
 
   context "when the given word is 'semi-structured'" do
     it "returns 'structur'" do
-      result = word.stem('semi-structured')
+      result = Word.new('semi-structured').stem
       expect(result).to eq('structur')
     end
   end

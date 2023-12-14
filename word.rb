@@ -2,8 +2,12 @@ class Word
   SUFFIXES = ["ing", "ed", "es", "s", "or"]
   PREFIXES = ["in", "over", "under", "multi", "un", "semi", 'anti']
 
-  def stem(value)
-    remove_prefix(remove_suffix(value))
+  def initialize(value)
+    @value = value
+  end
+
+  def stem
+    remove_prefix(remove_suffix(@value))
   end
 
   private
