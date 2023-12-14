@@ -1,12 +1,10 @@
 require 'rspec'
-# require_relative './stemmer.rb'
-# require_relative './stemmer2.rb'
-require_relative './stemmer3.rb'
+require_relative './word.rb'
 
 
-RSpec.describe Stemmer, "#stem" do
+RSpec.describe Word, "#stem" do
 
-let!(:stemmer) { Stemmer.new }
+let!(:stemmer) { Word.new }
   context "when the given word is 'training'" do
     it "returns 'train'" do
       result = stemmer.stem('training')
