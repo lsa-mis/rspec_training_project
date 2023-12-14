@@ -4,7 +4,7 @@ require_relative './word.rb'
 
 RSpec.describe Word, "#stem" do
 
-let!(:stemmer) { Word.new }
+  let!(:stemmer) { Word.new }
   context "when the given word is 'training'" do
     it "returns 'train'" do
       result = stemmer.stem('training')
