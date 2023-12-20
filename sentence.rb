@@ -1,4 +1,5 @@
 class Sentence
+  require_relative './word.rb'
   FUNCTION_WORDS = ["of"", ""at", "on", "in", "to", "without", "between", "the", "the", "a", "that", "my", "more", "much", "either",
   "neither", "and", "that", "when", "what", "while", "although", "or", "no", "not", "nor", "as", "is", "am", "are", "have", "got", "do",
   "you", "i", "he", "she"]

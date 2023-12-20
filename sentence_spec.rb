@@ -1,6 +1,5 @@
 require 'rspec'
 require_relative './sentence.rb'
-require_relative './word.rb'
 
 RSpec.describe Sentence, "#stem" do
 
