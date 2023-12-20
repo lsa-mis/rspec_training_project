@@ -7,7 +7,7 @@ class Word
   end
 
   def stem
-    remove_prefix(remove_suffix(@value))
+    remove_prefix(remove_suffix(@value.downcase))
   end
 
   private

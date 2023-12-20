@@ -10,6 +10,13 @@ RSpec.describe Word, "#stem" do
     end
   end
 
+  context "when the given word is 'TRAINING'" do
+    it "returns 'train'" do
+      result = Word.new('TRAINING').stem
+      expect(result).to eq('train')
+    end
+  end
+
   context "when the given word is 'started'" do
     it "returns 'start'" do
       result = Word.new('started').stem
@@ -48,6 +55,13 @@ RSpec.describe Word, "#stem" do
   context "when the given word is 'semi-structured'" do
     it "returns 'structur'" do
       result = Word.new('semi-structured').stem
+      expect(result).to eq('structur')
+    end
+  end
+
+  context "when the given word is 'Semi-structured'" do
+    it "returns 'structur'" do
+      result = Word.new('Semi-structured').stem
       expect(result).to eq('structur')
     end
   end
