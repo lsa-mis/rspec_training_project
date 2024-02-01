@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative './word.rb'
+require_relative '../word.rb'
 
 RSpec.describe Word, "#stem" do
 
