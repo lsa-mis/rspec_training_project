@@ -7,12 +7,12 @@ class Word
   end
 
   def stem
-    remove_prefix(remove_suffix(@value.downcase))
+    without_prefix(without_suffix(@value.downcase))
   end
 
   private
 
-    def remove_suffix(value)
+    def without_suffix(value)
       SUFFIXES.each do |suffix|
         if value.end_with?(suffix)
           return value.chomp(suffix)
@@ -21,7 +21,7 @@ class Word
       return value
     end
 
-    def remove_prefix(value)
+    def without_prefix(value)
       PREFIXES.each do |prefix|
         if value.start_with?(prefix)
           value.slice!(prefix)
