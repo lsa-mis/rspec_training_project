@@ -1,6 +1,6 @@
 class Word
-  SUFFIXES = ["ing", "ed", "es", "s", "or"]
-  PREFIXES = ["in", "over", "under", "multi", "un", "semi", 'anti']
+  SUFFIXES = %w[ing ed es s or]
+  PREFIXES = %w[in over under multi un semi anti]
 
   def initialize(value)
     @value = value
