@@ -1,5 +1,6 @@
 class Word
   SUFFIXES = %w[ing ed es s or]
+
   PREFIXES = %w[in over under multi un semi anti]
 
   def initialize(value)
@@ -12,24 +13,26 @@ class Word
 
   private
 
-    def without_suffix(value)
-      SUFFIXES.each do |suffix|
-        if value.end_with?(suffix)
-          return value.chomp(suffix)
-        end
-      end
-      return value
-    end
+  def without_suffix(value, suffixes = SUFFIXES.dup)
+    return value if suffixes.empty?
 
-    def without_prefix(value)
-      PREFIXES.each do |prefix|
-        if value.start_with?(prefix)
-          value.slice!(prefix)
-          value.slice!("-")
-          return value
-        end
-      end
-      return value
+    suffix = suffixes.shift
+    if value.end_with?(suffix)
+      value.chomp(suffix)
+    else
+      without_suffix(value, suffixes)
     end
+  end
+
+  def without_prefix(value)
+    PREFIXES.each do |prefix|
+      if value.start_with?(prefix)
+        value.slice!(prefix)
+        value.slice!("-")
+        return value
+      end
+    end
+    return value
+  end
 
 end
