@@ -66,4 +66,10 @@ RSpec.describe Word, "#stem" do
     end
   end
 
+  context "when there are multiple suffixes" do
+    it "returns 'train'" do
+      result = Word.new('trainings').stem
+      expect(result).to eq('train')
+    end
+  end
 end

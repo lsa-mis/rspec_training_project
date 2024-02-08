@@ -13,15 +13,13 @@ class Word
 
   private
 
-  def without_suffix(value, suffixes = SUFFIXES.dup)
-    return value if suffixes.empty?
-
-    suffix = suffixes.shift
-    if value.end_with?(suffix)
-      value.chomp(suffix)
-    else
-      without_suffix(value, suffixes)
-    end
+  def without_suffix(value)
+    # if there are no suffixes inside the value
+    if SUFFIXES.any? { |suffix| value.include?(suffix) }
+     return value
+    else 
+      without_suffix(value)
+     end
   end
 
   def without_prefix(value)
